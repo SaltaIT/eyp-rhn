@@ -35,7 +35,7 @@
 #
 # Copyright 2015 Your name here, unless otherwise noted.
 #
-class rhn($username, $password) inherits rhn::params {
+class rhn($username, $password, $already_registered=false) inherits rhn::params {
 
   Exec {
     path => '/usr/sbin:/usr/bin:/sbin:/bin',
@@ -45,11 +45,13 @@ class rhn($username, $password) inherits rhn::params {
     ensure => 'installed',
   }
 
-  exec { 'rhn register':
-    command => "rhnreg_ks '--username=${username}' '--password=${password}'",
-    unless  => 'rhn_check',
-    require => Package[$rhn::params::packages],
+  if(!$already_registered)
+  {
+    exec { 'rhn register':
+      command => "rhnreg_ks '--username=${username}' '--password=${password}'",
+      unless  => 'rhn_check',
+      require => Package[$rhn::params::packages],
+    }
   }
-
 
 }
