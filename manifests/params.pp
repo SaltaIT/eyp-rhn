@@ -1,7 +1,7 @@
 class rhn::params {
 
-	case $::osfamily
-	{
+  case $::osfamily
+  {
     'redhat':
     {
       case $::operatingsystem
@@ -13,15 +13,15 @@ class rhn::params {
         default:
         {
           notify{ 'rhn':
-      				message => "Nothing to to here -_-",
-      		}
+              message => "Nothing to to here -_-",
+          }
         }
       }
     }
-		'Debian':
-		{
+    'Debian':
+    {
       fail('Nothing to to here')
-		}
-		default: { fail('Nothing to to here')  }
-	}
+    }
+    default: { fail('Nothing to to here')  }
+  }
 }
