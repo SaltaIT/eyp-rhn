@@ -1,5 +1,7 @@
 # rhn
 
+**AtlasIT-AM/eyp-rhn**: [![Build Status](https://travis-ci.org/AtlasIT-AM/eyp-rhn.png?branch=master)](https://travis-ci.org/AtlasIT-AM/eyp-rhn)
+
 #### Table of Contents
 
 1. [Overview](#overview)
