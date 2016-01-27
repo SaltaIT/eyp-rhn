@@ -35,23 +35,39 @@
 #
 # Copyright 2015 Your name here, unless otherwise noted.
 #
-class rhn($username, $password, $already_registered=false) inherits rhn::params {
+class rhn (
+            $username,
+            $password,
+            $already_registered=false,
+            $http_proxy=undef
+          ) inherits rhn::params {
 
   Exec {
     path => '/usr/sbin:/usr/bin:/sbin:/bin',
   }
 
-  package { $rhn::params::packages:
-    ensure => 'installed',
-  }
-
-  if(!$already_registered)
+  if(!$rhn::params::rhn_needed)
   {
-    exec { 'rhn register':
-      command => "rhnreg_ks '--username=${username}' '--password=${password}'",
-      unless  => 'rhn_check',
+    package { $rhn::params::packages:
+      ensure => 'installed',
+    }
+
+    if(!$already_registered)
+    {
+      exec { 'rhn register':
+        command => "rhnreg_ks '--username=${username}' '--password=${password}'",
+        unless  => 'rhn_check',
+        require => Package[$rhn::params::packages],
+      }
+    }
+
+    file { '/etc/sysconfig/rhn/up2date':
+      ensure  => 'present',
+      owner   => 'root',
+      group   => 'root',
+      mode    => '0600',
+      content => template("${module_name}/rhn_up2date.erb"),
       require => Package[$rhn::params::packages],
     }
   }
-
 }

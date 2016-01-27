@@ -8,12 +8,21 @@ class rhn::params {
       {
         'RedHat':
         {
-          $packages= [ 'rhn-setup', 'rhn-check' ]
+          case $::operatingsystemrelease
+          {
+            /^6.*/:
+            {
+              $rhn_needed=true
+              $packages= [ 'rhn-setup', 'rhn-check' ]
+            }
+            default: {   }
+          }
         }
         default:
         {
+          $rhn_needed=false
           notify{ 'rhn':
-              message => "Nothing to to here -_-",
+              message => 'Nothing to to here -_-',
           }
         }
       }
