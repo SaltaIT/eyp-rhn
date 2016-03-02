@@ -15,7 +15,7 @@ class rhn::params {
               $rhn_needed=true
               $packages= [ 'rhn-setup', 'rhn-check' ]
             }
-            default: {   }
+            default: { $rhn_needed=false  }
           }
         }
         default:
