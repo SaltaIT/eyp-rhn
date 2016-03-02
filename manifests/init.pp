@@ -11,7 +11,7 @@ class rhn (
     path => '/usr/sbin:/usr/bin:/sbin:/bin',
   }
 
-  if(!$rhn::params::rhn_needed)
+  if($rhn::params::rhn_needed==true and $rhn::params::packages!=undef)
   {
     package { $rhn::params::packages:
       ensure => 'installed',
