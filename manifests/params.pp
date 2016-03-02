@@ -15,12 +15,17 @@ class rhn::params {
               $rhn_needed=true
               $packages= [ 'rhn-setup', 'rhn-check' ]
             }
-            default: { $rhn_needed=false  }
+            default:
+            {
+              $rhn_needed=false
+              $packages=undef
+            }
           }
         }
         default:
         {
           $rhn_needed=false
+          $packages=undef
           notify{ 'rhn':
               message => 'Nothing to to here -_-',
           }
