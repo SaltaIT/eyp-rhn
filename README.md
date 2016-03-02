@@ -1,6 +1,6 @@
 # rhn
 
-[![PRs Welcome](https://img.shields.io/badge/prs-welcome-brightgreen.svg)](http://makeapullrequest.com)
+![PRs Welcome](https://img.shields.io/badge/prs-welcome-brightgreen.svg)
 
 **AtlasIT-AM/eyp-rhn**: [![Build Status](https://travis-ci.org/AtlasIT-AM/eyp-rhn.png?branch=master)](https://travis-ci.org/AtlasIT-AM/eyp-rhn)
 
