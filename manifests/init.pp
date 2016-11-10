@@ -26,8 +26,7 @@ class rhn (
 
       if($subscription_manager)
       {
-        # subscription-manager register --username SRLCUK --password d9uAYQSgCX
-        # subscription-manager attach --auto
+        # subscription-manager register --username SRLCUK --password d9uAYQSgCX --auto-attach
       }
       else
       {
