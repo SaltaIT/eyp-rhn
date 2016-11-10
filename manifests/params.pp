@@ -14,6 +14,13 @@ class rhn::params {
             {
               $rhn_needed=true
               $packages= [ 'rhn-setup', 'rhn-check' ]
+              $subscription_manager=false
+            }
+            /^7.*/:
+            {
+              $rhn_needed=true
+              $packages= [ 'rhn-setup', 'rhn-check' ]
+              $subscription_manager=true
             }
             default:
             {

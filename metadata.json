@@ -1,6 +1,6 @@
 {
   "name": "eyp-rhn",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "author": "eyp",
   "summary": "registers servers to RHN",
   "license": "Apache-2.0",

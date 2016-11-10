@@ -24,10 +24,18 @@ class rhn (
         fail("Not already registered: RHN username(${username}) and password(${password}) required")
       }
 
-      exec { 'rhn register':
-        command => "rhnreg_ks '--username=${username}' '--password=${password}'",
-        unless  => 'rhn_check',
-        require => Package[$rhn::params::packages],
+      if($subscription_manager)
+      {
+        # subscription-manager register --username SRLCUK --password d9uAYQSgCX
+        # subscription-manager attach --auto
+      }
+      else
+      {
+        exec { 'rhn register':
+          command => "rhnreg_ks '--username=${username}' '--password=${password}'",
+          unless  => 'rhn_check',
+          require => Package[$rhn::params::packages],
+        }
       }
     }
 
