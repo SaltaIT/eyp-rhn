@@ -24,7 +24,7 @@ class rhn (
         fail("Not already registered: RHN username(${username}) and password(${password}) required")
       }
 
-      if($subscription_manager)
+      if($rhs::params::subscription_manager)
       {
         # subscription-manager register --username SRLCUK --password d9uAYQSgCX --auto-attach
       }
