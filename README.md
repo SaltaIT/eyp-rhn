@@ -88,6 +88,80 @@ Red Hat Enterprise Linux Server:
 - Not supported by a valid subscription.
 ```
 
+##canvis rhel7
+
+```
+--- /etc/sysconfig/rhn/up2date	2016-10-04 13:00:27.495708479 +0100
++++ /tmp/puppet-file20161202-28229-1tomfwz	2016-12-02 15:13:38.878641298 +0000
+@@ -1,23 +1,33 @@
+ # Automatically generated Red Hat Update Agent config file, do not edit.
++# puppet managed file - do NOT edit
+ # Format: 1.0
++tmpDir[comment]=Use this Directory to place the temporary transport files
++tmpDir=/tmp
++
+ disallowConfChanges[comment]=Config options that can not be overwritten by a config update action
+-disallowConfChanges=noReboot;sslCACert;useNoSSLForPackages;noSSLServerURL;serverURL
++disallowConfChanges=noReboot;sslCACert;useNoSSLForPackages;noSSLServerURL;serverURL;disallowConfChanges;
++
++skipNetwork[comment]=Skips network information in hardware profile sync during registration.
++skipNetwork=0
+
+ networkRetries[comment]=Number of attempts to make at network connections before giving up
+-networkRetries=5
++networkRetries=1
++
++hostedWhitelist[comment]=RHN Hosted URL's
++hostedWhitelist=
+
+ enableProxy[comment]=Use a HTTP Proxy
+ enableProxy=0
+
++writeChangesToLog[comment]=Log to /var/log/up2date which packages has been added and removed
++writeChangesToLog=0
++
+ serverURL[comment]=Remote server URL
+-serverURL=https://rhn.enterprise.verio.net/XMLRPC
++serverURL=https://xmlrpc.rhn.redhat.com/XMLRPC
+
+ proxyPassword[comment]=The password to use for an authenticated proxy
+ proxyPassword=
+
+-noSSLServerURL[comment]=Remote server URL without SSL
+-noSSLServerURL=http://rhn.enterprise.verio.net/XMLRPC
+-
+ proxyUser[comment]=The username for an authenticated proxy
+ proxyUser=
+
+@@ -25,7 +35,10 @@
+ versionOverride=
+
+ sslCACert[comment]=The CA cert used to verify the ssl server
+-sslCACert=/usr/share/rhn/RHN-ORG-TRUSTED-SSL-CERT
++sslCACert=/usr/share/rhn/RHNS-CA-CERT
++
++retrieveOnly[comment]=Retrieve packages only
++retrieveOnly=0
+
+ debug[comment]=Whether or not debugging is enabled
+ debug=0
+@@ -33,9 +46,6 @@
+ httpProxy[comment]=HTTP proxy in host:port format, e.g. squid.redhat.com:3128
+ httpProxy=
+
+-useNoSSLForPackages[comment]=Use the noSSLServerURL for package, package list, and header fetching
+-useNoSSLForPackages=1
+-
+ systemIdPath[comment]=Location of system id
+ systemIdPath=/etc/sysconfig/rhn/systemid
+
+@@ -44,4 +54,3 @@
+
+ noReboot[comment]=Disable the reboot actions
+ noReboot=0
+-
+``` 
+
 ## Limitations
 
 This is where you list OS compatibility, version compatibility, etc.
