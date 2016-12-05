@@ -5,7 +5,7 @@ class rhn (
             $password           = undef,
             $already_registered = false,
             $http_proxy         = undef,
-            $up2date_replace    = true,
+            $up2date_replace    = false,
           ) inherits rhn::params {
 
   Exec {

@@ -1,8 +1,8 @@
 # CHANGELOG
 
-## 0.1.7
+## 0.1.8
 
-* added **up2date_replace**
+* added **up2date_replace**, default false
 
 ## 0.1.6
 
