@@ -1,10 +1,11 @@
 # == Class: rhn
 #
 class rhn (
-            $username=undef,
-            $password=undef,
-            $already_registered=false,
-            $http_proxy=undef
+            $username           = undef,
+            $password           = undef,
+            $already_registered = false,
+            $http_proxy         = undef,
+            $up2date_replace    = true,
           ) inherits rhn::params {
 
   Exec {
@@ -72,6 +73,7 @@ class rhn (
       owner   => 'root',
       group   => 'root',
       mode    => '0600',
+      replace => $up2date_replace,
       content => template("${module_name}/rhn_up2date.erb"),
       require => Package[$rhn::params::packages],
     }
