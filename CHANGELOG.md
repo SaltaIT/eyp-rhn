@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.9
+
+* added **rhn::addrepo**
+
 ## 0.1.8
 
 * added **up2date_replace**, default false
