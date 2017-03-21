@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.10
+
+* **INCOMPATIBLE CHANGE**: renamed **rhn::addrepo** to **rhn::repo**
+
 ## 0.1.9
 
 * added **rhn::addrepo**
