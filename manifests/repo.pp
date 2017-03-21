@@ -2,6 +2,7 @@ define rhn::repo(
                   $reponame = $name,
                   $ensure   = 'present',
                 ) {
+
   include ::rhn
   # subscription-manager repos --enable=rhel-7-server-supplementary-rpms
   # subscription-manager repos --enable=rhel-7-server-optional-rpms
