@@ -6,6 +6,10 @@ define rhn::repo(
   # subscription-manager repos --enable=rhel-7-server-supplementary-rpms
   # subscription-manager repos --enable=rhel-7-server-optional-rpms
 
+  Exec {
+    path => '/usr/sbin:/usr/bin:/sbin:/bin',
+  }
+
   case $ensure
   {
     'present':
