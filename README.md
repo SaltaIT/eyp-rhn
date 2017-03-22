@@ -82,6 +82,7 @@ yumreposyncs:
 ```
 
 webserver nginx for local mirrors:
+
 ```yaml
 classes:
   - nginx
