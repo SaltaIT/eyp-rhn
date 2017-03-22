@@ -57,8 +57,74 @@ for upgrading, you may wish to include an additional section here: Upgrading
 
 ## Usage
 
-Put the classes, types, and resources for customizing, configuring, and doing
-the fancy stuff with your module here.
+reposync scripts:
+
+```yaml
+yumreposyncs:
+  'rhel-7-server-rpms':
+    repo_path: '/var/www/rhelmirror'
+    max_iterations_yum_pid: 870
+    delete: true
+    newest_only: true
+    cron_ensure: 'absent'
+  'rhel-7-server-supplementary-rpms':
+    repo_path: '/var/www/rhelmirror'
+    max_iterations_yum_pid: 870
+    delete: true
+    newest_only: true
+    cron_ensure: 'absent'
+  'rhel-7-server-optional-rpms':
+    repo_path: '/var/www/rhelmirror'
+    max_iterations_yum_pid: 870
+    delete: true
+    newest_only: true
+    cron_ensure: 'absent'
+```
+
+webserver nginx for local mirrors:
+```yaml
+classes:
+  - nginx
+nginx::add_default_vhost: false
+nginxvhosts:
+  'rhelmirror':
+    default: true
+    port: 8080
+nginxstubstatus:
+  'rhelmirror':
+    port: 8080
+```
+
+client config:
+
+```yaml
+rhnrepos:
+  'rhel-7-server-rpms':
+    ensure: 'absent'
+  'rhel-7-server-supplementary-rpms':
+    ensure: 'absent'
+  'rhel-7-server-optional-rpms':
+    ensure: 'absent'
+yumrepos:
+  'local-rhel-7-server-rpms':
+    ensure: 'present'
+    baseurl: 'http://localhost:8080/rhel-7-server-rpms'
+    gpgcheck: true
+    descr: 'local mirror - Red Hat Enterprise Linux 7 Server (RPMs)'
+    enabled: true
+  'local-rhel-7-server-supplementary-rpms':
+    ensure: 'present'
+    baseurl: 'http://localhost:8080/rhel-7-server-supplementary-rpms'
+    gpgcheck: true
+    descr: 'local mirror - Red Hat Enterprise Linux 7 Server - Supplementary (RPMs)'
+    enabled: true
+  'local-rhel-7-server-optional-rpms':
+    ensure: 'present'
+    baseurl: 'http://localhost:8080/rhel-7-server-optional-rpms'
+    gpgcheck: true
+    descr: 'local mirror - Red Hat Enterprise Linux 7 Server - Optional (RPMs)'
+    enabled: true
+```
 
 ## Reference
 
