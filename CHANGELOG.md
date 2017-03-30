@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.14
+
+*  canvi **rhn::repo** unless de **subscription-manager** a **yum repolist**
+
 ## 0.1.12
 
 * enhanced **rhn::repo** checking
