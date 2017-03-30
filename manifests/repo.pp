@@ -17,7 +17,7 @@ define rhn::repo(
     {
       exec { "subscribe repo ${reponame}":
         command => "subscription-manager repos --enable=${reponame}",
-        unless  => "yum repolist | grep \"^${reponame}/\"",
+        unless  => "bash -c 'yum repolist 2>/dev/null | grep \"^${reponame}/\"'",
         #unless  => "subscription-manager repos --list-enabled | grep \"Repo ID\" | grep \"\\b${reponame}\\b\"",
       }
     }
@@ -25,7 +25,7 @@ define rhn::repo(
     {
       exec { "subscribe repo ${reponame}":
         command => "subscription-manager repos --disable=${reponame}",
-        unless  => "bash -c '! yum repolist | grep -v \"^${reponame}/\"'",
+        unless  => "bash -c 'yum repolist 2>/dev/null | grep -v \"^${reponame}/\" > /dev/null'",
         #unless  => "subscription-manager repos --list-disabled | grep \"Repo ID\" | grep \"\\b${reponame}\\b\"",
       }
     }

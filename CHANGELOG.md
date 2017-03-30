@@ -1,8 +1,12 @@
 # CHANGELOG
 
+## 0.1.15
+
+* enhanced unless detection for **rhn::repo**
+
 ## 0.1.14
 
-*  canvi **rhn::repo** unless de **subscription-manager** a **yum repolist**
+* changed **rhn::repo** unless, **yum repolist** instead of **subscription-manager**
 
 ## 0.1.12
 
