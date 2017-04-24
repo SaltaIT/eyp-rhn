@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.18
+
+* bugfix returncode for rhn::repo when ensure is absent
+
 ## 0.1.17
 
 * removed daily checks for repos (we are using repolist)
