@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.17
+
+* removed daily checks for repos (we are using repolist)
+
 ## 0.1.16
 
 * improved repo detection using regex boundaries

@@ -34,14 +34,4 @@ define rhn::repo(
       fail("unsupported mode: ensure=${ensure}")
     }
   }
-
-  if versioncmp($::puppetversion, '3.8.0') >= 0
-  {
-    if(defined(Schedule['eyp-rhn daily schedule']))
-    {
-      Exec["subscribe repo ${reponame}"] {
-        schedule => 'eyp-rhn daily schedule',
-      }
-    }
-  }
 }
