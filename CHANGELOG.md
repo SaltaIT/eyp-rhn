@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.16
+
+* improved repo detection using regex boundaries
+
 ## 0.1.15
 
 * enhanced unless detection for **rhn::repo**
