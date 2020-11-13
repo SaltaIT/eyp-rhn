@@ -1,7 +1,7 @@
 {
   "name": "eyp-rhn",
   "version": "0.1.18",
-  "author": "eyp",
+  "author": "Jordi Prats",
   "summary": "registers servers to RHN",
   "license": "Apache-2.0",
   "source": "",
