@@ -2,7 +2,7 @@
 
 ![PRs Welcome](https://img.shields.io/badge/prs-welcome-brightgreen.svg)
 
-**NTTCom-MS/eyp-rhn**: [![Build Status](https://travis-ci.org/NTTCom-MS/eyp-rhn.png?branch=master)](https://travis-ci.org/NTTCom-MS/eyp-rhn)
+**SaltaIT/eyp-rhn**: [![Build Status](https://travis-ci.org/SaltaIT/eyp-rhn.png?branch=master)](https://travis-ci.org/SaltaIT/eyp-rhn)
 
 #### Table of Contents
 
